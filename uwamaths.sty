@@ -1,0 +1,838 @@
+%%
+%% This is file `uwamaths.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% uwamaths.dtx 
+%% 
+%%% ===================================================================
+%%%  @LaTeX-file{
+%%%     filename = "uwamaths.dtx",
+%%%     version  = "2.3",
+%%%     date     = "2007/05/21",
+%%%     time     = "03:01:38 WST",
+%%%     checksum = "02434 3991 17514 179959"
+%%%     author   = "Greg Gamble",
+%%%     address  = "School of Mathematics & Statistics,
+%%%                 University of Western Australia,
+%%%                 Crawley, W.A. 6009,
+%%%                 Australia",
+%%%     telephone = "+61 8 6488 3365,"
+%%%     FAX       = "+61 8 6488 1028",
+%%%     copyright = "Copyright (C) 1996-2007 Greg Gamble,
+%%%                  all rights reserved.  Copying of this file is
+%%%                  authorised only if either:
+%%%                   (1) you make absolutely no changes to your copy,
+%%%                       including name; OR
+%%%                   (2) if you do make changes, you first rename it
+%%%                       to some other name.
+%%%                  This file may be distributed under the terms of
+%%%                  the LaTeX Project Public License, as described
+%%%                  in lppl.txt in the base LaTeX distribution.",
+%%%     email     = "gregg@maths.uwa.edu.au (Internet)",
+%%%     codetable = "ISO/ASCII",
+%%%     keywords  = "latex, amslatex, ams-latex, installation",
+%%%     supported = "yes",
+%%%     abstract  = "This is an installation file that will generate
+%%%                  \pkg{uwamaths}. Initially provided to be an update
+%%%                  of \fn{maths.tex} for LaTeX 2e.
+%%%                  As the name suggests it contains
+%%%                  general purpose macros that are used at UWA.
+%%%                  It also incorporates the macros of
+%%%                  \fn{macros.tex} compiled by various UWA honours
+%%%                  students ... most notably: Paul Hanssen and
+%%%                  Stuart Allie. A great many additional macros have
+%%%                  since been added by the present author."
+%%%     docstring = "The checksum field above contains a CRC-16
+%%%                  checksum as the first value, followed by the
+%%%                  equivalent of the standard UNIX wc (word
+%%%                  count) utility output of lines, words, and
+%%%                  characters.  This is produced by Robert
+%%%                  Solovay's checksum utility.",
+%%%  }
+%%% ===================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uwamaths}[2007/05/21 v2.3]
+\typeout{Package: uwamaths 2.3 <2007/05/21>}
+\newif\if@autonum
+\DeclareOption{autonum}{\@autonumtrue}
+\newif\if@savewspace
+\newif\if@depttitle
+\DeclareOption{savewspace}{\@savewspacetrue}
+\DeclareOption{depttitle}{\@depttitletrue\@savewspacetrue}
+\newif\if@noepsf
+\DeclareOption{noepsf}{\@noepsftrue}
+\newif\if@thm
+\newif\if@itproof
+\newif\if@nosfirst
+\newif\if@unsectioned
+\DeclareOption{thm}{\@thmtrue}
+\DeclareOption{nothm}{\@thmfalse}
+\DeclareOption{nosfirst}{\@nosfirsttrue}
+\DeclareOption{itproof}{\@itprooftrue}
+\DeclareOption{unsectioned}{\@unsectionedtrue}
+\newif\if@eref
+\DeclareOption{eref}{\@ereftrue}
+\DeclareOption{noeref}{\@ereffalse}
+\newif\if@addenv
+\DeclareOption{addenv}{\@addenvtrue}
+\DeclareOption{noaddenv}{\@addenvfalse}
+\DeclareOption{noextras}{\@thmfalse\@ereffalse\@addenvfalse}
+\DeclareOption{defaults}{\@thmtrue\@ereftrue\@addenvtrue}
+\newif\if@danger
+\DeclareOption{danger}{\@dangertrue}
+\newif\if@gk
+\DeclareOption{gkabbrev}{\@gktrue}
+\newif\if@strut
+\DeclareOption{strut}{\@struttrue}
+\newif\if@vec
+\DeclareOption{vectors}{\@vectrue}
+\ExecuteOptions{defaults}
+\ProcessOptions
+\RequirePackage{amsmath,amssymb}
+\hyphenation{ana-lo-gous}
+\hyphenation{ne-cess-ary}
+\newif\if@slides
+\@ifundefined{slide}{}{\@slidestrue}
+\if@slides
+  \@unsectionedtrue
+  \providecommand\section{%
+       \@startsection{section}{1}{\z@}%
+                     {.7\baselineskip\@plus\baselineskip}{.5\baselineskip}%
+                     {\normalfont\bfseries\centering}}
+  \providecommand\subsection{%
+       \@startsection{subsection}{2}{\z@}%
+                     {.7\baselineskip\@plus\baselineskip}{.5\baselineskip}%
+                     {\normalfont\bfseries\centering}}
+  \def\thanks{\footnote}
+  \newenvironment{abstract}{\section{Abstract}}{}
+  \def\bibitem#1{\par}
+  \def\thebibliography#1{\section{References}}
+  \def\endthebibliography{}
+  \def\newblock{}
+  \RequirePackage{float}
+  \newcounter{figure}
+  \providecommand\fps@figure{H}
+  \providecommand\ftype@figure{1}
+  \providecommand\ext@figure{lof}
+  \providecommand\fnum@figure{}
+  \newenvironment{figure}{\@float{figure}}{\end@float}
+  \newcounter{table}
+  \providecommand\fps@table{H}
+  \providecommand\ftype@table{2}
+  \providecommand\ext@table{lot}
+  \providecommand\fnum@table{}
+  \newenvironment{table}{\@float{table}}{\end@float}
+  \newlength{\abovecaptionskip} \setlength{\abovecaptionskip}{10\p@}
+  \newlength{\belowcaptionskip} \setlength{\belowcaptionskip}{0\p@}
+  \long\def\@makecaption#1#2{%
+    \vskip\abovecaptionskip
+    \sbox\@tempboxa{\bfseries #2}%
+    \ifdim \wd\@tempboxa >\hsize
+      \bfseries #2\par
+    \else
+      \global \@minipagefalse
+      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \vskip\belowcaptionskip}
+  \def\equation{$$\refstepcounter{equation}}
+  \def\endequation{\eqno \hbox{\@eqnnum}$$\global\@ignoretrue}
+  \def\multline{\addtocounter{equation}{-1}\start@multline\st@rredfalse}
+  \if@autonum%
+    \pagestyle{slide}
+    \AtBeginDocument{\slide}
+    \AtEndDocument{\endslide}
+    \def\@extraslide{\par\break\stepcounter{slide}\G@slideswtrue}
+  \fi%
+\fi
+\newcommand{\vrD}{\vrule height1.9ex width0.4pt depth0.8ex}
+\newcommand{\vrS}{\vrule height1.26ex width0.3pt depth0.56ex}
+\newcommand{\vrSS}{\vrule height0.95ex width0.3pt depth0.4ex}
+\def\vr{\mathchoice{\vrD}{\vrD}{\vrS}{\vrSS}}
+\def\nvr{\!\!\not\,\,\vr}
+\def\divides{\mathchoice{\mathrel{\vr}}{\mathrel{\vr}}
+                        {\mathrel{\,\vr\,}}{\mathrel{\,\vr\,}}}
+\def\ndivides{\mathchoice{\mathrel{\nvr}}{\mathrel{\nvr}}
+                         {\mathrel{\,\nvr\,}}{\mathrel{\,\nvr\,}}}
+\newcommand{\nimplies}{\DOTSB\;\,\,\not\!\!\Longrightarrow\;}
+\newcommand{\nimpliedby}{\DOTSB\;\,\,\,\not\!\!\!\Longleftarrow\;}
+\newcommand{\similar}{\mathrel{|||}}
+\newcommand{\since}{\text{ since }}
+\newcommand{\as}{\text{ as }}
+\newcommand{\If}{\text{ if }}
+\newcommand{\Or}{\text{ or }}
+\newcommand{\AND}{\text{ and }}
+\newcommand{\where}{\text{ where }}
+\newcommand{\for}{\text{ for }}
+\newcommand{\some}{\text{ some }}
+\newcommand{\forsome}{\text{ for some }}
+\newcommand{\forany}{\text{ for any }}
+\ifx\htmlstyloaded\relax
+  \def\wrt{with respect to}
+  \def\Wlog{without loss of generality}
+  \def\corr{corresponding to}
+\else
+  \def\wrt/{with respect to}
+  \def\Wlog/{without loss of generality}
+  \def\corr/{corresponding to}
+\fi
+\ifx\htmlstyloaded\relax
+  \def\Divides{\ifmmode\divides\else divides\fi}
+  \def\Exists{\ifmmode\,\,\exists\,\else there exists\fi}
+  \def\is{\ifmmode\,\,\exists\,\else there is\fi}
+  \def\are{\ifmmode\,\,\exists\,\else there are\fi}
+  \def\Forall{\ifmmode\,\,\forall\,\else for all\fi}
+  \def\Iff{\ifmmode\iff\else if and only if\fi}
+  \def\st{\ifmmode\text{ such that }\else such that\fi}
+  \def\isomorphic{\ifmmode\cong\else is isomorphic to\fi}
+  \def\iso{\ifmmode\cong\else is isomorphic to\fi}
+\else
+  \def\Divides/{\ifmmode\divides\else divides\fi}
+  \def\Exists/{\ifmmode\,\,\exists\,\else there exists\fi}
+  \def\is/{\ifmmode\,\,\exists\,\else there is\fi}
+  \def\are/{\ifmmode\,\,\exists\,\else there are\fi}
+  \def\Forall/{\ifmmode\,\,\forall\,\else for all\fi}
+  \def\Iff/{\ifmmode\iff\else if and only if\fi}
+  \def\st/{\ifmmode\text{ such that }\else such that\fi}
+  \def\isomorphic/{\ifmmode\cong\else is isomorphic to\fi}
+  \def\iso/{\ifmmode\cong\else is isomorphic to\fi}
+\fi
+\newcommand{\N}{{\ensuremath{\mathbb{N}}}}
+\newcommand{\Z}{{\ensuremath{\mathbb{Z}}}}
+\newcommand{\Q}{{\ensuremath{\mathbb{Q}}}}
+\newcommand{\R}{{\ensuremath{\mathbb{R}}}}
+\newcommand{\Zplus}{{\ensuremath{\mathbb{Z}^+}}}
+\newcommand{\Qplus}{{\ensuremath{\mathbb{Q}^+}}}
+\newcommand{\Rplus}{{\ensuremath{\mathbb{R}^+}}}
+\newcommand{\C}{{\ensuremath{\mathbb{C}}}}
+\newcommand{\F}{{\ensuremath{\mathbb{F}}}}
+\newcommand{\D}{{\ensuremath{\mathbb{D}}}}
+\newcommand{\E}{{\ensuremath{\mathbb{E}}}}
+\newcommand{\K}{{\ensuremath{\mathbb{K}}}}
+\newcommand{\M}{{\ensuremath{\mathbb{M}}}}
+\newcommand{\Prob}{{\ensuremath{\mathbb{P}}}}
+\newcommand{\T}{{\ensuremath{\mathbb{T}}}}
+\newcommand{\ab}{{\boldsymbol{a}}}
+\newcommand{\bb}{{\boldsymbol{b}}}
+\newcommand{\cb}{{\boldsymbol{c}}}
+\newcommand{\db}{{\boldsymbol{d}}}
+\newcommand{\eb}{{\boldsymbol{e}}}
+\newcommand{\fb}{{\boldsymbol{f}}}
+\newcommand{\gb}{{\boldsymbol{g}}}
+\newcommand{\hb}{{\boldsymbol{h}}}
+\newcommand{\ib}{{\boldsymbol{i}}}
+\newcommand{\jb}{{\boldsymbol{j}}}
+\newcommand{\kb}{{\boldsymbol{k}}}
+\newcommand{\ub}{{\boldsymbol{u}}}
+\newcommand{\vb}{{\boldsymbol{v}}}
+\newcommand{\wb}{{\boldsymbol{w}}}
+\newcommand{\xb}{{\boldsymbol{x}}}
+\newcommand{\yb}{{\boldsymbol{y}}}
+\newcommand{\zb}{{\boldsymbol{z}}}
+\newcommand{\zer}{{\boldsymbol{0}}}
+\DeclareMathOperator{\re}{\mathcal{R}\!\scriptstyle{\textit{e}}}
+\DeclareMathOperator{\im}{\mathcal{I}\!\scriptstyle{\textit{m}}}
+\DeclareMathOperator{\cosec}{cosec}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\cosech}{cosech}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\lcd}{lcd}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\divg}{div}
+\DeclareMathOperator{\trig}{trig}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\ind}{ind}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\third}{\tfrac{1}{3}}
+\newcommand{\qtr}{\tfrac{1}{4}}
+\newcommand{\fifth}{\tfrac{1}{5}}
+\newcommand{\sixth}{\tfrac{1}{6}}
+\newcommand{\seventh}{\tfrac{1}{7}}
+\newcommand{\eighth}{\tfrac{1}{8}}
+\newcommand{\ninth}{\tfrac{1}{9}}
+\newcommand{\tenth}{\tfrac{1}{10}}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1\right\rceil}
+\newcommand{\absval}[1]{\lvert #1\rvert}
+\newcommand{\modulus}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lvert #1\rvert}
+\newcommand{\Norm}[1]{\lVert #1\rVert}
+\newcommand{\bigmod}[1]{\big\lvert #1\big\rvert}
+\newcommand{\toi}[1]{#1\to\infty}
+\newcommand{\toz}[1]{#1\to0}
+\newcommand{\limtoi}[1]{\lim_{\toi#1}}
+\newcommand{\limtoz}[1]{\lim_{\toz#1}}
+\newcommand{\limseq}{\lim_{n\to\infty}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\inj}{\rightarrowtail}
+\newcommand{\inner}[2]{\la #1 ,\, #2\ra}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\def\@vr#1{\vrule height #1ex width 0pt}
+\def\dotcup{\DOTSB\mathop{\overset{\textstyle.}\cup}}
+\let\disjunion\dotcup
+\def\@dotbigcupD{\smash\bigcup\@vr{2.1}}
+\def\@dotbigcupT{\smash\bigcup\@vr{1.5}}
+\def\dotbigcupD{\DOTSB\mathop{\overset{\textstyle.}\@dotbigcupD%
+                              \vphantom{\bigcup}}}
+\def\dotbigcupT{\DOTSB\smash{\mathop{\overset{\textstyle.}\@dotbigcupT%
+                             \vphantom{\bigcup}}}%
+                      \vphantom{\bigcup}\@vr{2.0}}
+\def\dotbigcup{\mathop{\mathchoice{\dotbigcupD}{\dotbigcupT}
+                                  {\dotbigcupT}{\dotbigcupT}}}
+\let\Disjunion\dotbigcup
+\newcommand{\dg}{\partial}
+\newcommand{\partn}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\dee}{\mathrm{d}}
+\newcommand{\deedee}[2]{{\dee#1 / \dee#2}}
+\newcommand{\DeeDee}[2]{\dfrac{\dee#1}{\dee#2}}
+\newcommand{\normp}[2]{\norm{#2}\lower1ex\hbox{$\scriptscriptstyle{#1}$}}
+\newcommand{\Normp}[2]{\Norm{#2}\lower1ex\hbox{$\scriptscriptstyle{#1}$}}
+\newcommand{\normone}[1]{\normp1{#1}}
+\newcommand{\normtwo}[1]{\normp2{#1}}
+\newcommand{\Normone}[1]{\Normp1{#1}}
+\newcommand{\Normtwo}[1]{\Normp2{#1}}
+\newcommand{\eqdef}{\mathrel{\widehat{=}}}
+\newcommand{\Th}{{\text{th}}}
+\newcommand{\normr}[2]{\mathrm{N}_{#1}\left({#2}\right)}
+\newcommand{\centr}[2]{\mathrm{C}_{#1}\left({#2}\right)}
+\newcommand{\centre}[1]{\mathrm{Z}\left({#1}\right)}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Wr}{wr}
+\DeclareMathOperator{\twr}{twr}
+\DeclareMathOperator{\soc}{soc}
+\DeclareMathOperator{\fix}{fix}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\mov}{mov}
+\DeclareMathOperator{\val}{val}
+\DeclareMathOperator{\Cay}{Cay}
+\newcommand{\liso}{\lesssim}
+\newcommand{\giso}{\gtrsim}
+\newsavebox\@tbox
+\newdimen\@raiseamount
+\newcommand\lowstackrel[2]{%
+     \sbox{\@tbox}{$#2$} \setlength{\@raiseamount}{\ht\@tbox}
+     \mathrel{\raisebox{-\@raiseamount}%
+                       {$\stackrel{\displaystyle#1}{\usebox{\@tbox}}$}}}
+\newcommand{\leiso}{\lowstackrel{\le}{\sim}}
+\newcommand{\geiso}{\lowstackrel{\ge}{\sim}}
+\newcommand{\conjelt}{%
+     \mathrel{\underset{\raisebox{0.4ex}{$\scriptstyle{\sim}$}}{\in}}}
+\newcommand{\contconjelt}{%
+     \mathrel{\underset{\raisebox{0.4ex}{$\scriptstyle{\sim}$}}{\ni}}}
+\newcommand{\norml}{\vartriangleleft}
+\newcommand{\normlgt}{\vartriangleright}
+\newcommand{\normleq}{\trianglelefteq}
+\newcommand{\normlge}{\trianglerighteq}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Ndist}{N}
+\DeclareMathOperator{\tdist}{t}
+\DeclareMathOperator{\Fdist}{F}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Poi}{Poi}
+\xdef\Join{\mathrel{\mathchar"0\hexnumber@\symAMSb 6F\mkern-13.8mu%
+  \mathchar"0\hexnumber@\symAMSb 6E}}
+\providecommand{\singlespacing}{\renewcommand{\baselinestretch}{1}}
+\providecommand{\oneandhalfspacing}{\renewcommand{\baselinestretch}{1.24}}
+\providecommand{\doublespacing}{\renewcommand{\baselinestretch}{1.66}}
+\newcommand{\onespace}{\quad}
+\newcommand{\twospace}{\qquad}
+\newcommand{\threespace}{\qquad\quad}
+\newcommand{\fourspace}{\qquad\qquad}
+\chardef\bslchar=`\\
+\newcommand{\addbslash}{\expandafter\@addbslash\string}
+\def\@addbslash#1{\bslchar\@nobslash#1}
+\newcommand{\nobslash}{\expandafter\@nobslash\string}
+\def\@nobslash#1{\ifnum`#1=\bslchar\else#1\fi}
+\newcommand{\ntt}{\normalfont\ttfamily}
+\def\@boxorbreak{\leavevmode
+  \ifmmode\hbox\else\ifdim\lastskip=\z@\penalty9999 \fi\fi}
+\newcommand{\cn}[1]{\@boxorbreak{\ntt\addbslash#1\@empty}}
+\newcommand{\cls}[1]{{\ntt#1}}
+\newcommand{\pkg}[1]{{\ntt#1}}
+\newcommand{\opt}[1]{{\ntt#1}}
+\newcommand{\env}[1]{{\ntt#1}}
+\newcommand{\fn}[1]{{\ntt#1}}
+\def\allowtthyphens{\input{OT1cmtt.fd}%
+  \expandafter\let\csname OT1+cmtt\endcsname\@empty}
+\def\AmS{{\protect\usefont{OMS}{cmsy}{m}{n}%
+  A\kern-.1667em\lower.5ex\hbox{M}\kern-.125emS}}
+\ifx\htmlstyloaded\relax
+  \def\Latex{{\protect\LaTeX}}
+  \def\latexe{{\protect\LaTeXe}}
+  \def\amslatex{{\protect\AmS-\protect\LaTeX}}
+  \def\tex{{\protect\TeX}}
+  \def\amstex{{\protect\AmS-\protect\TeX}}
+  \def\bibtex{{Bib\protect\TeX}}
+  \def\makeindx{MakeIndex}
+  \def\xypic{XY\mbox{-}pic}
+\else
+  \def\latex/{{\protect\LaTeX}}
+  \def\Latex/{{\protect\LaTeX}}
+  \def\latexe/{{\protect\LaTeXe}}
+  \def\amslatex/{{\protect\AmS-\protect\LaTeX}}
+  \def\tex/{{\protect\TeX}}
+  \def\amstex/{{\protect\AmS-\protect\TeX}}
+  \def\bibtex/{{Bib\protect\TeX}}
+  \def\makeindx/{MakeIndex}
+  \def\xypic/{XY\mbox{-}pic}
+\fi
+\providecommand{\indx}[1]{#1\index{#1}}
+\providecommand{\gloss}[1]{\emph{#1}\glossary{#1}}
+\newcommand{\uwasmas}{The University of Western Australia\\
+                      SCHOOL OF MATHEMATICS AND STATISTICS}
+\let\uwamd\uwasmas
+\if@savewspace
+  \RequirePackage{anysize}
+  \marginsize{2cm}{2cm}{2cm}{2cm}
+  \def\obeycrMakeUppercase#1#2{\global\let#1\@empty%
+                               \@obeycrUppercase#1#2\\\\\end}
+  \def\@obeycrUppercase#1#2\\#3\\\end{%
+         \ifx#2\relax\else%
+           \ifx#1\@empty\gdef#1{\Makeuppercase{#2}}%
+           \else%
+             \g@addto@macro#1{\\\Makeuppercase{#2}}%
+           \fi%
+           \@obeycrUppercase#1#3\\\\\end%
+         \fi}
+  \let\Makeuppercase\MakeUppercase
+  \def\course#1{\obeycrMakeUppercase\@course{#1}}
+  \if@depttitle
+    \def\@course{\PackageWarning{uwamaths}{No \noexpand\course given}\@empty}
+  \else
+    \let\@course\@empty
+  \fi
+  \let\@@course\@course
+  \let\@@author\@author
+  \let\department\uwamd
+  \def\@maketitle{%
+    \newpage
+    \begin{center}%
+    \let \footnote \thanks
+      {\normalsize%
+       \if@depttitle\department\\[0.7em]%
+       \else\fi
+       \ifx\@course\@@course\@course\else%
+         \bfseries\@course\ \\[0.9em]
+       \fi
+       \bfseries\large \@title \par}%
+       \ifx\@author\@@author\@author\else%
+         \vskip 1em%
+         \begin{tabular}[t]{c}%
+           \@author
+         \end{tabular}%
+       \fi
+       \vskip 1em%
+      {\normalsize \@date}%
+    \end{center}%
+    \par%
+    \global\let\@@author\relax%
+    \global\let\@@course\relax}
+  \@ifundefined{chapter}{}{%
+      \def\abstract{\section*{\centering\abstractname}}
+      \def\endabstract{\medbreak}
+      \providecommand\chaptername{Chapter}
+      \def\@makechapterhead#1{%
+        \begingroup
+        \fontsize{\@xivpt}{18}\bfseries\centering
+          \ifnum\c@secnumdepth>\m@ne
+            \leavevmode \hskip-\leftskip
+            \rlap{\vbox to\z@{\vss
+                \centerline{\normalsize\mdseries
+                    \uppercase\@xp{\chaptername}\enspace\thechapter}
+                \vskip 3pc}}\hskip\leftskip\fi
+           #1\par \endgroup
+        \skip@34\p@ \advance\skip@-\normalbaselineskip
+        \vskip\skip@ }
+      \def\@makeschapterhead#1{%
+        \begingroup
+        \fontsize{\@xivpt}{18}\bfseries\centering
+        #1\par \endgroup
+        \skip@34\p@ \advance\skip@-\normalbaselineskip
+        \vskip\skip@ }
+      }
+  \def\section{\@startsection {section}{1}{\z@}%
+      {-3.5ex \@plus -1ex \@minus -.2ex}{2.3ex \@plus.2ex}%
+      {\normalfont\secsize\bfseries}}
+  \def\subsection{\@startsection{subsection}{2}{\z@}%
+      {-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}%
+      {\normalfont\subsecsize\bfseries}}
+  \def\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+      {-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}%
+      {\normalfont\normalsize\bfseries}}
+  \def\paragraph{\@startsection{paragraph}{4}{\z@}%
+      {3.25ex \@plus1ex \@minus.2ex}{-1em}%
+      {\normalfont\normalsize\bfseries}}
+  \def\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+      {3.25ex \@plus1ex \@minus .2ex}{-1em}%
+      {\normalfont\normalsize\bfseries}}
+  \let\secsize\normalsize
+  \let\subsecsize\normalsize
+\fi
+\if@noepsf\else\if@thm\if@eref\if@addenv%
+  \RequirePackage{epsf}
+\fi\fi\fi\fi
+\if@thm%
+  \RequirePackage{amsthm}
+  \newtheoremstyle{slant}{\topsep}{\topsep}{\slshape}{0pt}%
+                  {\bfseries}{.}{ }{}
+  \newtheoremstyle{algorithm}{\topsep}{\topsep}{\ttfamily}{0pt}%
+                  {\bfseries}{.}{ }{}
+  \def\renewtheorem{\@ifstar{\@renewtheorem *}{\@renewtheorem \relax}}
+  \def\@renewtheorem#1#2{%
+        \@ifundefined{#2}%
+          {\@latex@error{Theorem environment #2 undefined}\@ehc}{}%
+        \@xp\let\csname#2\endcsname\relax
+        \@xp\let\csname end#2\endcsname\relax
+        \@xnthm{#1}{#2}}
+  \if@nosfirst \swapnumbers \fi
+  \edef\@numbered@as{\if@unsectioned theorem\else subsection\fi}
+  \theoremstyle{slant}
+    \if@unsectioned%
+      \newtheorem{theorem}{Theorem}
+    \else%
+      \newtheorem{theorem}[subsection]{Theorem}
+    \fi%
+    \newtheorem*{theorem*}{Theorem}
+    \newtheorem{lemma}[\@numbered@as]{Lemma}
+    \newtheorem*{lemma*}{Lemma}
+    \newtheorem{corollary}[\@numbered@as]{Corollary}
+    \newtheorem*{corollary*}{Corollary}
+    \newtheorem{proposition}[\@numbered@as]{Proposition}
+    \newtheorem*{proposition*}{Proposition}
+    \newtheorem{conjecture}[\@numbered@as]{Conjecture}
+    \newtheorem*{conjecture*}{Conjecture}
+    \newtheorem{construction}[\@numbered@as]{Construction}
+    \newtheorem*{construction*}{Construction}
+    \newtheorem{result}[\@numbered@as]{Result}
+    \newtheorem*{result*}{Result}
+    \newtheorem{example}[\@numbered@as]{Example}
+    \newtheorem*{example*}{Example}
+    \newtheorem{axiom}{Axiom}
+    \newtheorem*{axiom*}{Axiom}
+    \newtheorem{property}{Property}
+    \newtheorem*{property*}{Property}
+  \theoremstyle{definition}
+    \newtheorem{remark}[\@numbered@as]{Remark}
+    \newtheorem*{remark*}{Remark}
+    \if@slides\else
+      \newtheorem{note}[\@numbered@as]{Note}
+      \newtheorem*{note*}{Note}
+    \fi
+    \newtheorem{Note}[\@numbered@as]{Note}
+    \newtheorem*{Note*}{Note}
+    \newtheorem{definition}[\@numbered@as]{Definition}
+    \newtheorem*{definition*}{Definition}
+    \newtheorem{exercise}[\@numbered@as]{Exercise}
+    \newtheorem*{exercise*}{Exercise}
+    \newtheorem{question}[\@numbered@as]{Question}
+    \newtheorem*{question*}{Question}
+    \newtheorem{problem}[\@numbered@as]{Problem}
+    \newtheorem*{problem*}{Problem}
+    \newtheorem{case}{Case}
+    \newtheorem*{case*}{Case}
+    \newtheorem{subcase}{Subcase}[case]
+    \newtheorem*{subcase*}{Subcase}
+  \theoremstyle{algorithm}
+    \newtheorem{algthm}[\@numbered@as]{Algorithm}
+    \newtheorem*{algthm*}{Algorithm}
+    \newtheorem{proc}[\@numbered@as]{Procedure}
+    \newtheorem*{proc*}{Procedure}
+  \theoremstyle{remark}
+    \newtheorem{plaus}[\@numbered@as]{Plausibility}
+    \newtheorem*{plaus*}{Plausibility}
+  \if@itproof\else%
+   \renewenvironment{proof}[1][\proofname]{\par
+     \normalfont
+     \topsep6\p@\@plus6\p@ \trivlist
+     \item[\hskip\labelsep\bfseries
+       #1\@addpunct{.}]\ignorespaces
+     }{%
+     \qed\endtrivlist
+     }%
+  \fi
+  \newenvironment{smproof}{\small\begin{proof}}{\end{proof}}
+  \providecommand{\numberin}[2]{%
+     \@addtoreset{#1}{#2}%
+     \@xp\@xp\@xp\renewcommand\@xp{\csname the#1\endcsname}{%
+                        \csname the#2\endcsname.\arabic{#1}}}
+  \if@unsectioned\else
+     \numberin{equation}{section}
+     \numberin{table}{section}
+     \numberin{figure}{section}
+  \fi
+  \newcommand{\numberallin}[1]{\numberin{theorem}{#1} \numberin{table}{#1}%
+                               \numberin{figure}{#1} \numberin{equation}{#1}}
+\fi
+\if@eref
+  \DeclareRobustCommand\eref[1]{\@eref#1\end}
+  \def\@eref#1:#2\end{%
+        \@xp\ifx\csname pr@#1\endcsname\relax%
+              \PackageWarning{uwamaths}{Reference format #1\space undefined}%
+              \ref{#1:#2}%
+        \else \csname pr@#1\endcsname{\ref{#1:#2}}{\pageref{#1:#2}}{#1:#2}%
+        \fi}
+  \def\newrefformat#1#2{\@namedef{pr@#1}##1##2##3{%
+       \def\onpage{\@xp\@onpage\csname r@##3\endcsname\@secondoftwo{##3}}#2}}
+  \def\@onpage#1#2#3{%
+        \ifx#1\relax%
+              \@latex@warning{Reference `#3' on page \thepage
+                              \space undefined}
+              on page \textbf{??}%
+        \else \@xp\@xp\@xp\@@onpage\@xp#2#1\end%
+        \fi}
+  \def\@@onpage#1\end{%
+        \ifnum\thepage=#1\null\onthispage%
+              \typeout{Reference on same page as float (page \thepage)}%
+        \else \typeout{Reference on page \thepage, float on page #1}
+              on page #1%
+        \fi}
+  \def\onthispage{ on this page}
+  \newrefformat{eq}{\textup{(#1)}}
+  \newrefformat{tab}{Table #1\onpage}
+  \newrefformat{fig}{Figure #1\onpage}
+  \newrefformat{cha}{Chapter #1}
+  \newrefformat{apx}{Appendix #1}
+  \newrefformat{sec}{Section #1}
+  \newrefformat{thm}{Theorem #1}
+  \newrefformat{lem}{Lemma #1}
+  \newrefformat{cor}{Corollary #1}
+  \newrefformat{prn}{Proposition #1}
+  \newrefformat{cnj}{Conjecture #1}
+  \newrefformat{cns}{Construction #1}
+  \newrefformat{res}{Result #1}
+  \newrefformat{eg}{Example #1}
+  \newrefformat{ax}{Axiom #1}
+  \newrefformat{pry}{Property #1}
+  \newrefformat{rem}{Remark #1}
+  \newrefformat{nte}{Note #1}
+  \newrefformat{def}{Definition #1}
+  \newrefformat{ex}{Exercise #1}
+  \newrefformat{q}{Question #1}
+  \newrefformat{prb}{Problem #1}
+  \newrefformat{cse}{Case #1}
+  \newrefformat{scs}{Subcase #1}
+  \newrefformat{alg}{Algorithm #1}
+  \newrefformat{prc}{Procedure #1}
+  \newrefformat{pls}{Plausibility #1}
+\fi
+\newif\ifnoq
+\newif\ifnoans      \newif\ifIgnoreAnsOpt
+\newif\ifnosoln     \newif\ifIgnoreSolnOpt
+\if@addenv%
+  \newcounter{exno}
+  \newenvironment{exercises}[1][\exsname]%
+    {\ifx#1\relax\else\medbreak\noindent{\bfseries #1.}\fi%
+     \begin{list}{\arabic{exno}.}%
+                 {\usecounter{exno}\def\makelabel##1{\hss\llap{##1}}}}
+    {\end{list}}
+  \newcommand{\exsname}{Exercises}
+  \newenvironment{exerciseset}%
+    {\begin{exercises}[Exercise Set \thesection]}
+    {\end{exercises}}
+  \newcommand{\uwa@enum}[2]{%
+     \begin{list}{(\csname #2\endcsname{#1})}%
+                 {\usecounter{#1}\def\makelabel##1{\hss\llap{##1}}}}
+  \newcommand{\newuwa@enumenv}[2]{%
+     \newcounter{#1}
+     \newenvironment{#1}{\uwa@enum{#1}{#2}}{\end{list}}}
+  \newuwa@enumenv{sub}{roman}
+  \newuwa@enumenv{subsub}{alph}
+  \newuwa@enumenv{Sub}{Roman}
+  \newuwa@enumenv{Subsub}{Alph}
+  \@ifundefined{acknowledgements}{%
+    \newenvironment{acknowledgements}%
+       {\renewcommand{\abstractname}{Acknowledgements}%
+        \begin{abstract}}
+       {\end{abstract}}
+    }{}
+  \providecommand{\glossaryname}{Glossary}
+  \@ifundefined{theglossary}{%
+    \newenvironment{theglossary}%
+      {\chapter*{\glossaryname}
+       \addcontentsline{toc}{chapter}{\glossaryname}
+       \thispagestyle{plain}
+       \begin{description}}
+      {\end{description}}
+    }{}
+  \def\qonly{\noqfalse\noanstrue\nosolntrue}
+  \def\ansonly{\noqtrue\noansfalse\nosolntrue}
+  \def\solnonly{\noqtrue\noanstrue\nosolnfalse}
+  \RequirePackage{verbatim}
+  \newenvironment{exquestion}%
+     {\ifnoq\let\@next=\comment\let\endexquestion=\endcomment%
+      \else\let\@next=\relax%
+      \fi\@next}%
+     {}
+  \def\ansfontsize{\small}
+  \def\anshead{{\bfseries Answer\@addpunct{.}\enspace}}
+  \newenvironment{answer}[1][]%
+     {\ifnoans\let\@next=\comment\let\endanswer=\endcomment%
+        \ifIgnoreAnsOpt\else #1\fi
+      \else\let\@next=\relax%
+        \ifnoq\else%
+          \ansfontsize
+          \begin{list}%
+            {}{\itemindent\listparindent \parsep 0pt plus 1pt}
+          \item[] \anshead
+        \fi%
+      \fi\@next}
+     {\ifnoans\else\ifnoq\else\end{list}\fi\fi}
+  \def\solnfontsize{\small}
+  \def\solnhead{{\bfseries Solution\@addpunct{.}\enspace}}
+  \newenvironment{solution}[1][]%
+     {\ifnosoln\let\@next=\comment\let\endsolution=\endcomment%
+        \ifIgnoreSolnOpt\else #1\fi
+      \else\let\@next=\relax%
+        \ifnoq\else%
+          \solnfontsize
+          \begin{list}%
+            {}{\itemindent\listparindent \parsep 0pt plus 1pt}
+          \item[] \solnhead
+        \fi%
+      \fi\@next}
+     {\ifnosoln\else\ifnoq\else\end{list}\fi\fi}
+  \def\exlist#1{\ifx *#1%
+                   \typeout{Requested exitem list: all}%
+                   \let\exitem\@exitem
+                \else
+                   \typeout{Requested exitem list: #1}%
+                \fi%
+                \AtEndDocument{%
+                   \typeout{Available exitem list: \@availexlist.}}%
+                \@splitexlist#1,,\end}
+  \def\@add@avail#1{\ifx\@empty\@availexlist
+                      \gdef\@availexlist{#1}%
+                    \else
+                      \g@addto@macro\@availexlist{,#1}%
+                    \fi}
+  \let\@availexlist\@empty
+  \def\@splitexlist#1,#2\end{\gdef\@next@ex{#1}\gdef\@exlist{#2\end}}
+  \newenvironment{exitem}[1]%
+               {\edef\@temp{#1}\@add@avail{#1}\ifx\@temp\@next@ex%
+                   \typeout{Including exitem: \@temp.}
+                   \@xp\global\@xp\@splitexlist\@exlist
+                     \let\@next=\item
+                   \else\let\endexitem=\endcomment\let\@next=\comment\fi
+                   \@next}{}
+  \def\@exitem#1{\@add@avail{#1}\typeout{Including exitem: #1.}\item}
+\fi
+\if@danger%
+  \font\manual=manfnt at 1\@ptsize pt
+  \def\dbend{{\manual\char127}}
+  \newlength{\dangerwidth}
+  \def\@setdangerwidth{%
+     \setlength{\dangerwidth}{\textwidth}
+     \addtolength{\dangerwidth}{-40pt}}
+  \newenvironment{danger}%
+     {\begin{center}\@setdangerwidth%
+      \begin{minipage}{\dangerwidth}\parindent=20pt%
+      \noindent\hangindent\parindent\hangafter=-2%
+      \hbox to0pt{\hskip-\hangindent\dbend\hfill}%
+      \small\ignorespaces}%
+     {\end{minipage}\end{center}}
+  \newenvironment{ddanger}%
+     {\begin{center}\@setdangerwidth%
+      \begin{minipage}{\dangerwidth}\parindent=40pt%
+      \noindent\hangindent\parindent\hangafter=-2%
+      \hbox to0pt{\hskip-\hangindent\dbend\kern1pt\dbend\hfill}%
+      \small\ignorespaces}%
+     {\end{minipage}\end{center}}
+\fi
+\if@gk%
+  \newcommand{\al}{\alpha}
+  \newcommand{\be}{\beta}
+  \newcommand{\ga}{\gamma}
+  \newcommand{\de}{\delta}
+  \newcommand{\ep}{\varepsilon}
+  \newcommand{\ka}{\kappa}
+  \newcommand{\ph}{\varphi}
+  \newcommand{\lam}{\lambda}
+  \newcommand{\si}{\sigma}
+  \newcommand{\om}{\omega}
+  \newcommand{\alb}{{\boldsymbol{\alpha}}}
+  \newcommand{\beb}{{\boldsymbol{\beta}}}
+  \newcommand{\gab}{{\boldsymbol{\gamma}}}
+  \newcommand{\deb}{{\boldsymbol{\delta}}}
+  \newcommand{\epb}{{\boldsymbol{\varepsilon}}}
+  \newcommand{\kab}{{\boldsymbol{\kappa}}}
+  \newcommand{\phb}{{\boldsymbol{\varphi}}}
+  \newcommand{\lamb}{{\boldsymbol{\lambda}}}
+  \newcommand{\sib}{{\boldsymbol{\sigma}}}
+  \newcommand{\omb}{{\boldsymbol{\omega}}}
+  \newcommand{\Ga}{\varGamma}
+  \newcommand{\De}{\varDelta}
+  \newcommand{\The}{\varTheta}
+  \newcommand{\La}{\varLambda}
+  \newcommand{\itXi}{\varXi}
+  \newcommand{\itPi}{\varPi}
+  \newcommand{\Si}{\varSigma}
+  \newcommand{\Ups}{\varUpsilon}
+  \newcommand{\Ph}{\varPhi}
+  \newcommand{\Ps}{\varPsi}
+  \newcommand{\Om}{\varOmega}
+  \newcommand{\Gab}{{\boldsymbol{\varGamma}}}
+  \newcommand{\Deb}{{\boldsymbol{\varDelta}}}
+  \newcommand{\Theb}{{\boldsymbol{\varTheta}}}
+  \newcommand{\Lab}{{\boldsymbol{\varLambda}}}
+  \newcommand{\itXib}{{\boldsymbol{\varXi}}}
+  \newcommand{\itPib}{{\boldsymbol{\varPi}}}
+  \newcommand{\Sib}{{\boldsymbol{\varSigma}}}
+  \newcommand{\Upsb}{{\boldsymbol{\varUpsilon}}}
+  \newcommand{\Phb}{{\boldsymbol{\varPhi}}}
+  \newcommand{\Psb}{{\boldsymbol{\varPsi}}}
+  \newcommand{\Omb}{{\boldsymbol{\varOmega}}}
+\fi
+\if@strut%
+  \newcommand{\hstrut}{\vrule height2.1ex width0pt depth0pt}
+  \newcommand{\dstrut}{\vrule height0pt width0pt depth1ex}
+  \newcommand{\medhstrut}{\vrule height2.5ex width0pt depth0pt}
+  \newcommand{\medstrut}{\vrule height2.5ex width0pt depth1.5ex}
+  \newcommand{\meddstrut}{\vrule height0pt width0pt depth1.5ex}
+  \newcommand{\highstrut}{\vrule height4.2ex width0pt depth0pt}
+  \newcommand{\bigstrut}{\vrule height4.2ex width0pt depth3ex}
+  \newcommand{\deepstrut}{\vrule height0pt width0pt depth3ex}
+\fi
+\if@vec%
+  \newcommand{\vectr}[1]{\ensuremath%
+      {\oalign{$#1$\crcr\hidewidth
+               \vbox to .2ex{\hbox{$\boldsymbol{\mathchar"7E}$}\vss}%
+               \hidewidth}}}
+  \renewcommand{\vec}[1]{\vectr{{\boldsymbol{#1}}}}
+  \newcommand{\unitvec}[1]{\vec{\hat#1}}
+  \newcommand{\varvectr}[1]{\ensuremath{\!\vectr{\,#1}}}
+  \newcommand{\varvec}[1]{\varvectr{{\boldsymbol{#1}}}}
+  \newcommand{\varunitvec}[1]{\varvec{\hat#1}}
+  \newcommand{\scdot}{\boldsymbol{\cdot}}
+  \newcommand{\cross}{\boldsymbol{\times}}
+  \newcommand{\del}{\vec{\nabla}}
+  \newcommand{\delsq}{\ensuremath{\nabla^2}}
+  \renewcommand{\zer}{\vec{0}}
+\fi
+\endinput
+%%
+%% End of file `uwamaths.sty'.
