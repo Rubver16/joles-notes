@@ -1,2 +1,11 @@
-<h2>Inclusion Exclusion</h2>
-<h2>Pascal's Rule</h2>
+## Inclusion Exclusion
+## Pascal's Rule
+## Pigeonhole Principle
+## Selections
+## How to use case bash
+## Vectors
+## Addition
+## Proofs
+## Sin + Cos with vectors
+## || and perp vectors
+## CAS tutorial
