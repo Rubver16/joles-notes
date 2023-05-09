@@ -1,4 +1,4 @@
-\usepackage{uwamaths}
+$$\usepackage{uwamaths}$$
 ## Combinatorics
 ### Inclusion Exclusion
 ### Pascal's Rule
