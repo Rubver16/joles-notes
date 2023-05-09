@@ -1,12 +1,13 @@
-$$\usepackage{uwamaths}$$
 ## Combinatorics
 ### Inclusion Exclusion
 
 ### Pascal's Rule
-Pascals Rule states that $$\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. 
+Pascals Rule states that $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. If we take a look at the third row of pascals triangle:
 
 
-We can prove this in two ways as follows, although i don't think we need to know this (it helps for understanding imo):\\
+
+We can prove this in two ways as follows, although i don't think we need to know this (it helps for understanding imo):
+
 Algebraic proof:
 $$
 \begin{align*}
@@ -35,3 +36,5 @@ So, adding up the cases where we select the red and don't select the red marble,
 ### Sin + Cos with vectors
 ### || and perp vectors
 ### CAS tutorial
+
+Main website [_index.md](here). 
