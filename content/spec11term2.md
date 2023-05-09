@@ -2,9 +2,11 @@
 ### Inclusion Exclusion
 
 ### Pascal's Rule
-Pascals Rule states that $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. For example, we know that the third row of pascals triangle (1 3 3 1) can be represented in binomial coeffecients as follows:  
-$$\binom{3}{0}$$ $$\binom{3}{1}$$ $$\binom{3}{2}$$ $$\binom{3}{3}$$
-
+Pascals Rule states that $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. For example, we know that the third row of pascals triangle (1, 3, 3, 1) can be represented in binomial coeffecients as follows:  
+$\binom{3}{0}$ $\binom{3}{1}$ $\binom{3}{2}$ $\binom{3}{3}$
+Now, we know that the next row of pascals triangle is defined by the sum of the previous, as such. So the 4th row would look like  
+$1$, $\binom{3}{0}$ + $\binom{3}{1}$, $\binom{3}{1}$ + $\binom{3}{2}$, $\binom{3}{2}$ + $\binom{3}{3}$, $1$ 
+However, **using pascal's rule**, we also know that $\binom{3}{0}$ + $\binom{3}{1}$=$\binom{4}{1}$, $\binom{3}{1}$ + $\binom{3}{2}$=$\binom{3}{1}$ and $\binom{3}{2}$ + $\binom{3}{3}$=$\binom{4}{3}$
 
 
 We can prove this in two ways as follows, although i don't think we need to know this (it helps for understanding imo):
@@ -37,5 +39,7 @@ So, adding up the cases where we select the red and don't select the red marble,
 ### Sin + Cos with vectors
 ### || and perp vectors
 ### CAS tutorial
-
-Main website [here](_index.md). 
+Main website [here](_index.md).
+<!---
+needs fixing
+-->
