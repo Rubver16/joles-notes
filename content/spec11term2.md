@@ -38,4 +38,4 @@ So, adding up the cases where we select the red and don't select the red marble,
 ### || and perp vectors
 ### CAS tutorial
 
-Main website [https://rubver16.github.io/joles-notes/](here). 
+Main website [here](_index.md). 
