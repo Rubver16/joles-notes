@@ -2,7 +2,8 @@
 ### Inclusion Exclusion
 
 ### Pascal's Rule
-Pascals Rule states that $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. If we take a look at the third row of pascals triangle:
+Pascals Rule states that $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. Right now, this doesn't seem particularly, important, but this gives us reasoning as to why the numbers in pascals triangle are actually binomial coefficients $\binom{n}{r}$. For example, we know that the third row of pascals triangle (1 3 3 1) can be represented in binomial coeffecients as follows:  
+$$\binom{3}{0}$$ $$\binom{3}{1}$$ $$\binom{3}{2}$$ $$\binom{3}{3}$$
 
 
 
@@ -37,4 +38,4 @@ So, adding up the cases where we select the red and don't select the red marble,
 ### || and perp vectors
 ### CAS tutorial
 
-Main website [_index.md](here). 
+Main website [https://rubver16.github.io/joles-notes/](here). 

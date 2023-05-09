@@ -5,5 +5,5 @@ enableToc: false
 
 hello welcome i plan on doing a lot of maths and maybe some science stuff we'll see
 
-Methods notes for test on 5/5/2023 [notes_1.md](here), covers quadratics, some relations and some polynomials.
-Specialist Notes for test on 12/5/2023 [spec11term2.md](here), covers basic combinatorics and vectors.
+Methods notes for test on 5/5/2023 [https://rubver16.github.io/joles-notes/notes_1](here), covers quadratics, some relations and some polynomials.
+Specialist Notes for test on 12/5/2023 [https://rubver16.github.io/joles-notes/spec11term2](here), covers basic combinatorics and vectors.
