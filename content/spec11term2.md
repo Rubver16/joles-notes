@@ -1,6 +1,27 @@
+Hey guys these are not done yet but if you want to have a look through feel free anyways lol contact me if anything is wrong/doesn't make sense
 ## Combinatorics
 ### Inclusion Exclusion
-What is Inclusion 
+What is Inclusion Exclusion principle?
+Let $n(X)$ represent the number of things in a set, such as red marbles or people in a team.  
+**Two variables**
+> $n(A)+n(B)-n(A\cap B)=n(A \cup B)$ 
+
+The idea is that we end up counting the objects in $n(A \cap B)$ twice, we have to subtract the extra's at the end to account for this.  
+For example,
+* There are 219 people doing methods in our year.
+* There are 164 people doing english in our year.
+
+If we were to count the number of people in our year who do methods or english (or both), adding these numbers together would give 383 people, which is way more people than in our year!  
+This is because we counted everyone who does methods and english (a lot) twice, once in the 219 people who do methods and once in the 164 people doing english. Therefore, to get the correct answer we have to subtract all the people who do both.
+
+**Three variables**
+> $n(A)+n(B)+n(C)-n(A\cap B)-n(B\cap C)-n(A\cap C)+n(A \cap B\cap C)=n(A \cup B \cup C)$ 
+
+This is long. Lets work through it logically by seeing which parts we count too many and not enough times.  
+
+Since we add $n(A)$ and $n(B)$, we end up counting all the objects in $n(A\cap B)$ twice, when we should only count them once, so we need to subtract $n(A\cap B)$. Similarly, we need to subtract $n(B\cap C)$ and $n(A\cap C)$ for the same reason.  
+Now, considering $n(A \cap B\cap C)$, we count it three times in $n(A),n(B),n(C)$ and subtract it three times in   
+$n(A \cap B),n(B \cap C),n(A \cap C)$, so we don't count it at all. Since we need to count it once, we add it once at the end.
 ### Pascal's Rule
 What is Pascals rule?
 > Pascals Rule: $\binom{n}{r}+\binom{n}{r+1}=\binom{n+1}{r+1}$. 
@@ -19,7 +40,7 @@ Because of pascals rule, we can express pascals triangle in terms of binomial co
 $\binom{n}{0}$, $\binom{n}{1},\dots,\binom{n}{n-1}$, $\binom{n}{n}$  
 In a test, the questions they might ask is to ask to to caluculate binomial coefficients from a row of pascals triangle, or for some binomial coeffecient close to another binomial coeffecient. For example:
 * Circle $\binom{6}{4}$ on pascals triangle.
-* Given that 
+* Given that $\binom{9}{3}=84,\binom{9}{4}=126$, what is $\binom{10}{4}$ ?
 
 
 We can prove pascals rule in two ways as follows, although i don't think we need to know this (it helps for understanding though):
@@ -53,9 +74,26 @@ This principle can be extended as well as follows:
 
 Again, a similar proof by contradiction works for this - if each pigeonhole contains at most $a$ pigeons, then theres at most $an$ pigeons, a contradiction.  
 Although this principle is rather easy to understand, the difficult part is finding out what should be our pigeons and what should be our pigeon holes.
+
+Here are two examples to illustrate how i would approached these problems and my thought process. With practice, you can spot the idea immediately. 
+
+**Problem 1:**  
+ There are 35 players on a football team and each player has a different number chosen from 1 to 100. Prove that there are at least four pairs of players whose numbers have the same sum. 
+
+ Here, we want to show that there are pairs of players with the same sum. So, if our pigeonholes are the number of sums, and the number of pairs of players as our pigeons, then by pigeonhole principle we can probably find pairs of players in the with the same sum (i.e. in the same pigeonhole). Therefore, all that is left is to calculate the numbers. Here is how I would write it:
+
+ Let the pairs of players be our pigeons, and the possible sums of the players numbers be our pigeonholes. Therefore, we have $\binom{35}{2}=595$ pigeons. Since the smallest sum is 3 and the largest 199, there are 197 different sums, so 197 pigeonholes. Therefore, since $197 \times 3 + 1= 592 < 595$, one of the pigeonholes has to have at least 4 pigeons, so there do exist 4 pairs with the same sum.
+
+ **Problem 2**  
+Seven boys and five girls sit evenly spaced at a round table. Prove that some pair of
+boys are sitting opposite each other.  
+What does it mean for two boys to be sitting opposite to to each other? Well, it means that if i take two people opposite each other they contain two boys. So, having our pigeons be boys at the table and pigeonholes be the 6 groups of opposite chairs seems like it could work. To clarify, suppose that each person is sitting on a number on a clock face. Our pigeonholes would be seats (12 and 6), (1 and 7), (2 and 8), and so on, where each pigeonhole has two seats opposite each other. Then, since there are 7 pigeons (boys) and 6 pigeonholes (groups of seats), 2 boys must be in the same group of seats, so there must be two boys sitting opposite each other. 
+
 ### Selections
 ### How to use case bash
 ## Vectors
+### Definition
+For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$. However, we can also represent a vector as its vertical part and its horizontal part, which we call component form $\underset{\tilde{}}{a}$
 ### Addition
 ### Proofs
 ### Sin + Cos with vectors
