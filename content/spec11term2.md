@@ -91,11 +91,24 @@ What does it mean for two boys to be sitting opposite to to each other? Well, it
 
 ### Selections
 ### How to use case bash
+Some combinatorics problems you just have to break into cases
 ## Vectors
 ### Definition
-For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$. However, we can also represent a vector as its vertical part and its horizontal part, which we call component form $\underset{\tilde{}}{a}$
+For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$ (polar form). However, we can also represent a vector as its vertical part and its horizontal part, which we call component form, like $\binom{a}{b} = ai + bj$. Here,     
 ### Addition
 ### Proofs
+**Problem 1:**
+Show that the diagonals of a parallelogram bisect each other.  
+
+As always, we draw a diagram first. Note that i dunno how to place the little squiggly line under variables in the diagrams, so they are omitted (pretend they have squiggly lines underneath them).
+![](VectorDiagrams/ParallelogramBisect1.png)
+Since we are dealing with a parallelogram, the red vectors are the same, and the blue vectors are the same. Furthermore, we are dealing with diagonals, so lets draw those in.  
+![](VectorDiagrams/ParallelogramBisect2.png)
+Now, a useful approach to this question is to show that the two midpoints of the purple and green vectors are the same point. So, lets define the midpoints of $AC$ and $BD$ as $M_1$ and $M_2$. Furthermore, lets represent them in terms of $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{a}$.  
+![](VectorDiagrams/ParallelogramBisect3.png)
+Here, we have $\vec{AM_1}=\frac{1}{2}\vec{AC}=\frac{{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}}{2}$.  
+Furthermore, $\vec{AM_2}=\vec{AB}+\vec{BM_2}=\underset{\tilde{}}{b}+\frac{{\underset{\tilde{}}{a}}-\underset{\tilde{}}{b}}{2}=\frac{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}{2}$.  
+Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and therefore the intersection of the lines is a midpoint to both lines, so the diagonals bisect each other.
 ### Sin + Cos with vectors
 ### || and perp vectors
 ### CAS tutorial
