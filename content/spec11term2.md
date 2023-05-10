@@ -112,7 +112,7 @@ Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and ther
 ### Sin + Cos with vectors
 ### || and perp vectors
 ### CAS tutorial
-aaaaaa vsc work please
+aaaaaa deploy please
 Main website [here](_index.md).
 <!---
 needs fixing
