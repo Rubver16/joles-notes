@@ -243,7 +243,7 @@ $$\begin{align*}
 ||\vec{PA}||^2+||\vec{PC}||^2&=||\vec{AP}||^2+||\vec{PC}||^2\\
 &=||\vec{AP}+\vec{PC}||^2-2\vec{AP}\cdot \vec{PC}\\
 &=||\vec{AC}||^2+2\vec{PA}\cdot {PC}\\
-&=||\vec{BD}||^2+2\vec{PB}\cdot \vec{PD} \text{ since }||AC||=||BD|| \text{ and equation \_(1)}\\
+&=||\vec{BD}||^2+2\vec{PB}\cdot \vec{PD} \text{ since }||AC||=||BD|| \text{ and equation (1)}\\
 &=||\vec{BP}+\vec{PD}||^2-2\vec{BP}\cdot \vec{PD}\\
 &=||BP||^2+||PD||^2\\
 &=||PB||^2+||PD||^2
