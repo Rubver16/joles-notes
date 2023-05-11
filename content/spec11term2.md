@@ -96,7 +96,7 @@ Some combinatorics problems you just have to break into cases
 ## Vectors
 ### Definition
 For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$ (polar form). However, we can also represent a vector as its vertical part and its horizontal part, which we call component form, like $\binom{a}{b} = ai + bj$. For example, the vector $\underset{\tilde{}}{a}=\binom{3}{2}$ can be represented as the sum of 3 i vectors and 2 j vectors as such:
-![](VectorDiagrams/ComponentForm1.png)
+![](VectorDiagrams/ComponentForm1.png)  
 ### Arithmetic
 We can add two vectors together as such:
 >$\vec{AX}+\vec{XB}=\vec{AB}$
@@ -106,7 +106,7 @@ We can add two vectors together as such:
 See how the $X$ just cancels out? Recognising this pattern makes it much easier to add vectors - just remove the two X's and the plus sign!
 Graphically, we use "head to tail" method, where we line up the vectors head to tail. 
 If you think about it hard enough, lining up the vectors this way, the resulting vector will have components the sum of the previous ones, just as we wanted.
-![](VectorDiagrams\VectorAddition.png)
+![](VectorDiagrams\VectorAddition.png)  
 Subtraction in a very similar way - think about it in terms of addition. $\vec{AB}-\vec{AX}=\vec{AB}+\vec{XA}=\vec{XA}+\vec{AB}=\vec{XB}$
 > $\vec{AB}-\vec{AX}=\vec{XB}$
 >
@@ -115,8 +115,8 @@ Subtraction in a very similar way - think about it in terms of addition. $\vec{A
 What about multiplication (and by extension division)? Well, we can't multiply two vectors together, but we can do something similar. We can scale up or down vectors by some number $k$ as such:
 > $k\binom{a_1}{b_1}=\binom{ka_1}{kb_1}$
 
-Think about it as a vector with the same direction but a length k times longer.
-The other thing that we can do is called the "dot product". 
+Think about it as a vector with the same direction but a length k times longer. We also call a vector with length 1 a unit vector, and give it a hat. The unit vector of $\underset{\tilde{}}{a}$ is the vector in the same direction with length one, represented by $\frac{\underset{\tilde{}}{a}}{||\underset{\tilde{}}{a}||}$.  
+The other operation that we can do is called the "dot product". 
 > $\binom{a_1}{b_1} \cdot \binom{a_2}{b_2}=a_1 \times a_2 + b_1 \times b_2$
 
 Look at cos with vectors for some more information...
@@ -139,6 +139,7 @@ For the second one, $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{a} = a_1^2 
 ### Cos with vectors and dot product
 > $a\cdot b=||a|| \times ||b|| \times cos\theta$
 
+![](VectorDiagrams/CosineDotProduct.png)  
 You've probably seen this before. Here is a proof.
 
 Suppose we have a triangle $OAB$ with $\angle AOB=\theta$. For convenience, let $a=\vec{OA}$, $b=\vec{OB}$ (i'm emitting the squiggly lines so my writeup doesn't suck you should include them).  
@@ -164,8 +165,24 @@ My explanation for this is as follows: Since vectors have no position, if they a
 From before, if $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are perpendicular, then $cos\theta=cos90=0$, so $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}=0$. Similarly, if the dot product is 0, either one of your vectors is the 0 vector or they are perpendicular. We use this result quite often in proofs, so don't forget it!
 
 ### Vector + Scalar Resolute
+> Vector Resolute is: $\frac{\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}}{||\underset{\tilde{}}{b}||^2}=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{\hat{b}} \times \underset{\tilde{}}{\hat{b}}=||\underset{\tilde{}}{a}||cos(\theta) \underset{\tilde{}}{\hat{b}}$
+>
+>Scalar Resolute is: $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{\hat{b}}=||\underset{\tilde{}}{a}||cos(\theta)$
 
-
+The vector resolute is like if u looked at the shadow a vector put on another vector. The scalar resolute is just the length of the vector resolute. Here's a diagram:
+![](VectorDiagrams/VectorResolute.png)  
+Here, the vector resolute of $\underset{\tilde{}}{a}$ on $\underset{\tilde{}}{b}$ is $k\underset{\tilde{}}{b}$. 
+We know that $\underset{\tilde{}}{a}-k\underset{\tilde{}}{b}$ and $\underset{\tilde{}}{b}$ are perpendicular, so:
+$$\begin{align*}
+0&=(\underset{\tilde{}}{a}-k\underset{\tilde{}}{b})\cdot \underset{\tilde{}}{b}\\
+&=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b} - k \underset{\tilde{}}{b}\cdot \underset{\tilde{}}{b}\\
+k||\underset{\tilde{}}{b}||^2&=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}\\
+k&=\frac{\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}}{||\underset{\tilde{}}{b}||^2}\\
+k\underset{\tilde{}}{b}&=\frac{\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}\times \underset{\tilde{}}{b}}{||\underset{\tilde{}}{b}||^2}\\
+&=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{\hat{b}} \times \underset{\tilde{}}{\hat{b}}\\
+&=\frac{||\underset{\tilde{}}{a}||\times ||\underset{\tilde{}}{b}||\times cos(\theta) \underset{\tilde{}}{b}}{||\underset{\tilde{}}{b}||^2}=||\underset{\tilde{}}{a}||cos(\theta) \underset{\tilde{}}{\hat{b}}
+\end{align*}$$
+Dividing by $\underset{\tilde{}}{\hat{b}}$ eliminates the "direction" and gives the scalar resolute.
 ### Proofs
 Note that i've tried to include all the arithmetic steps to make it easier to understand, and you can probably get away with not doing that, although if you can its a good idea to demonstrate the arithmetic.
 
@@ -179,11 +196,11 @@ The reason I say this is because just because you can follow the logic down, doe
 Show that the diagonals of a parallelogram bisect each other.  
 
 As always, we draw a diagram first. Note that i dunno how to place the little squiggly line under variables in the diagrams, so they are omitted (pretend they have squiggly lines underneath them).
-![](VectorDiagrams/ParallelogramBisect1.png)
+![](VectorDiagrams/ParallelogramBisect1.png)  
 Since we are dealing with a parallelogram, the red vectors are the same, and the blue vectors are the same. Furthermore, we are dealing with diagonals, so lets draw those in.  
-![](VectorDiagrams/ParallelogramBisect2.png)
+![](VectorDiagrams/ParallelogramBisect2.png)  
 Now, a useful approach to this question is to show that the two midpoints of the purple and green vectors are the same point. So, lets define the midpoints of $AC$ and $BD$ as $M_1$ and $M_2$. Furthermore, lets represent them in terms of $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{a}$.  
-![](VectorDiagrams/ParallelogramBisect3.png)
+![](VectorDiagrams/ParallelogramBisect3.png)  
 Here, we have $\vec{AM_1}=\frac{1}{2}\vec{AC}=\frac{{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}}{2}$.  
 Furthermore, $\vec{AM_2}=\vec{AB}+\vec{BM_2}=\underset{\tilde{}}{b}+\frac{{\underset{\tilde{}}{a}}-\underset{\tilde{}}{b}}{2}=\frac{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}{2}$.  
 Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and therefore the intersection of the lines is a midpoint to both lines, so the diagonals bisect each other.
@@ -194,7 +211,7 @@ Let $ABCD$ be a rectangle, and $P$ a point inside the rectangle. Show that $AP^2
 
 Since we are using vector methods, we should represent this equation in vectors: $||\vec{PA}||^2+||\vec{PC}||^2=||\vec{PB}||^2+||\vec{PD}||^2$
 We should start every problem by drawing a diagram.
-![](VectorDiagrams/Rectangle1.png)
+![](VectorDiagrams/Rectangle1.png)  
 Here, there are two methods to do this - one is pythagoras, where i wont write anything out in vectors but you can write everything as lengths of vectors and components. The second proof is purely vector methods without any pythagoras, and doesn't require the red lines.
 
 **Proof 1:** Pythagoras.
@@ -238,7 +255,7 @@ Show that the orthocentre exists - i.e. the altitudes of a triangle meet at at a
 
 An altitude is a line that is perpendicular to a side and touches the opposite vertex of the triangle. Lets draw a diagram.
 
-![](VectorDiagrams/Orthocentre1.png)
+![](VectorDiagrams/Orthocentre1.png)  
 
 Here, i've drawn in two of the altitudes, and the line from the vertex to their intersection point. If this vector is perpendicular to the blue vector, the side, then the red line is an altitude and therefore the 3 altitudes intersect at a point, which is what we want. With perpendicular vectors, we usually show the dot product is 0. So,
 $$\begin{align*}
