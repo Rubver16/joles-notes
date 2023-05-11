@@ -118,34 +118,23 @@ What about multiplication (and by extension division)? Well, we can't multiply t
 Think about it as a vector with the same direction but a length k times longer.
 The other thing that we can do is called the "dot product". 
 > $\binom{a_1}{b_1} \cdot \binom{a_2}{b_2}=a_1 \times a_2 + b_1 \times b_2$
+
 Look at cos with vectors for some more information...
-### Proofs
-Just a warning for your proofs:
-($LHS$ = left hand side, $RHS$ = right hand side).
->If you are required to prove $LHS=RHS$, start with $LHS$ and work with it until you get $RHS$. Don't start with $LHS=RHS$ and go to $0=0$, as unless you are very careful it is not valid!
+Now, expressing the dot product in terms of vectors is incredibly useful for a lot of reasons. The dot product is very similar to normal multiplication:
+>$(\underset{\tilde{}}{a}+\underset{\tilde{}}{b})\cdot \underset{\tilde{}}{c}=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{c} + \underset{\tilde{}}{b}\cdot \underset{\tilde{}}{c}$
+>
+>$$||\underset{\tilde{}}{a}||^2 = \underset{\tilde{}}{a}\cdot \underset{\tilde{}}{a}$$
 
-The reason I say this is because just because you can follow the logic down, doesn't mean you can follow the logic up. $LHS = RHS \implies 0=0$ doesn't mean that $0=0 \implies LHS = RHS$! For example, multiplying everything by zero gives $0=0$. It is only ok to do this if the logic "goes both ways", or in other words the operation can be reversed. For example, multiplying by zero or squaring (because of negative numbers) cannot be easily reversed, but adding or subtracting can. Be careful!
-**Problem 1:**
-Show that the diagonals of a parallelogram bisect each other.  
-
-As always, we draw a diagram first. Note that i dunno how to place the little squiggly line under variables in the diagrams, so they are omitted (pretend they have squiggly lines underneath them).
-![](VectorDiagrams/ParallelogramBisect1.png)
-Since we are dealing with a parallelogram, the red vectors are the same, and the blue vectors are the same. Furthermore, we are dealing with diagonals, so lets draw those in.  
-![](VectorDiagrams/ParallelogramBisect2.png)
-Now, a useful approach to this question is to show that the two midpoints of the purple and green vectors are the same point. So, lets define the midpoints of $AC$ and $BD$ as $M_1$ and $M_2$. Furthermore, lets represent them in terms of $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{a}$.  
-![](VectorDiagrams/ParallelogramBisect3.png)
-Here, we have $\vec{AM_1}=\frac{1}{2}\vec{AC}=\frac{{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}}{2}$.  
-Furthermore, $\vec{AM_2}=\vec{AB}+\vec{BM_2}=\underset{\tilde{}}{b}+\frac{{\underset{\tilde{}}{a}}-\underset{\tilde{}}{b}}{2}=\frac{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}{2}$.  
-Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and therefore the intersection of the lines is a midpoint to both lines, so the diagonals bisect each other.
-Here is a formal proof:
-
-**Problem 2:**  
-Let $ABCD$ be a rectangle, and $P$ a point inside the rectangle. Show that $AP^2+CP^2=BP^2+DP^2$. 
-
-Since we are using vector methods, we should represent this equation in vectors: $||\vec{PA}||^2+||\vec{PC}||^2=||\vec{PB}||^2+||\vec{PD}||^2$
-We should start every problem by drawing a diagram.
-![](VectorDiagram/Rectangle1.png)
-
+The first rule allows you to expand vectors with dot product incredibly easily, and the second lets you relate it to lengths. These are very easy to prove, let:  
+$\underset{\tilde{}}{a}=\binom{a_1}{b_1}$, $\underset{\tilde{}}{b}=\binom{a_2}{b_2}$, $\underset{\tilde{}}{c}=\binom{a_3}{b_3}$.
+Therefore, $$\begin{align*}
+(\underset{\tilde{}}{a}+\underset{\tilde{}}{b})\cdot \underset{\tilde{}}{c}&=\left(\binom{a_1}{b_1}+\binom{a_2}{b_2}\right)\cdot \binom{a_3}{b_3}\\
+&=\binom{a_1+a_2}{b_1+b_2}\cdot \binom{a_3}{b_3}\\
+&=(a_1+a_2)\times a_3+(b_1+b_2)\times b_3\\
+&=a_1a_3+b_1b_3+a_2a_3+b_2b_3\\
+&=\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{c}+ \underset{\tilde{}}{b}\cdot \underset{\tilde{}}{c}
+\end{align*}$$
+For the second one, $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{a} = a_1^2 + b_1^2= \sqrt{a_1^2 + b_1^2}^2=||\underset{\tilde{}}{a}||^2$.
 
 ### Cos with vectors and dot product
 > $a\cdot b=||a|| \times ||b|| \times cos\theta$
@@ -168,15 +157,102 @@ This is useful for many reasons, such as relating dot product and lengths to the
 >
 >$\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are perpendicular if and only if $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}=0$
 
-Parallel vectors are simple: two vectors being parallel is equivelent to one being a multiple of another. So, if you can find some number k such that $k\underset{\tilde{}}{a}=\underset{\tilde{}}{b}$, $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are parallel. 
+Parallel vectors are simple: two vectors being parallel is equivelent to one being a multiple of another. So, if you can find some number k such that $k\underset{\tilde{}}{a}=\underset{\tilde{}}{b}$, $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are parallel. ($k$ can be negative)
 
 My explanation for this is as follows: Since vectors have no position, if they are parallel you can put them so they both start at the origin. Since they both have the same direction since they are parallel, the only thing that differs is their magnitude. If we scale this up or down (multiply by a number) so they have the same magnitude, they will be the same vector.
 
 From before, if $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are perpendicular, then $cos\theta=cos90=0$, so $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}=0$. Similarly, if the dot product is 0, either one of your vectors is the 0 vector or they are perpendicular. We use this result quite often in proofs, so don't forget it!
 
-### CAS tutorial
-aaaaaa deploy please please
-Main website [here](_index.md).
+### Vector + Scalar Resolute
+
+
+### Proofs
+Note that i've tried to include all the arithmetic steps to make it easier to understand, and you can probably get away with not doing that, although if you can its a good idea to demonstrate the arithmetic.
+
+Just a warning for your proofs:
+($LHS$ = left hand side, $RHS$ = right hand side).
+>If you are required to prove $LHS=RHS$, start with $LHS$ and work with it until you get $RHS$. Don't start with $LHS=RHS$ and go to $0=0$, as unless you are very careful it is not valid!
+
+The reason I say this is because just because you can follow the logic down, doesn't mean you can follow the logic up. $LHS = RHS \implies 0=0$ doesn't mean that $0=0 \implies LHS = RHS$! For example, multiplying everything by zero gives $0=0$. It is only ok to do this if the logic "goes both ways", or in other words the operation can be reversed. For example, multiplying by zero or squaring (because of negative numbers) cannot be easily reversed, but adding or subtracting can. Be careful!
+
+**Problem 1:**
+Show that the diagonals of a parallelogram bisect each other.  
+
+As always, we draw a diagram first. Note that i dunno how to place the little squiggly line under variables in the diagrams, so they are omitted (pretend they have squiggly lines underneath them).
+![](VectorDiagrams/ParallelogramBisect1.png)
+Since we are dealing with a parallelogram, the red vectors are the same, and the blue vectors are the same. Furthermore, we are dealing with diagonals, so lets draw those in.  
+![](VectorDiagrams/ParallelogramBisect2.png)
+Now, a useful approach to this question is to show that the two midpoints of the purple and green vectors are the same point. So, lets define the midpoints of $AC$ and $BD$ as $M_1$ and $M_2$. Furthermore, lets represent them in terms of $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{a}$.  
+![](VectorDiagrams/ParallelogramBisect3.png)
+Here, we have $\vec{AM_1}=\frac{1}{2}\vec{AC}=\frac{{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}}{2}$.  
+Furthermore, $\vec{AM_2}=\vec{AB}+\vec{BM_2}=\underset{\tilde{}}{b}+\frac{{\underset{\tilde{}}{a}}-\underset{\tilde{}}{b}}{2}=\frac{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}{2}$.  
+Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and therefore the intersection of the lines is a midpoint to both lines, so the diagonals bisect each other.
+Here is a formal proof:
+
+**Problem 2:**  
+Let $ABCD$ be a rectangle, and $P$ a point inside the rectangle. Show that $AP^2+CP^2=BP^2+DP^2$. 
+
+Since we are using vector methods, we should represent this equation in vectors: $||\vec{PA}||^2+||\vec{PC}||^2=||\vec{PB}||^2+||\vec{PD}||^2$
+We should start every problem by drawing a diagram.
+![](VectorDiagrams/Rectangle1.png)
+Here, there are two methods to do this - one is pythagoras, where i wont write anything out in vectors but you can write everything as lengths of vectors and components. The second proof is purely vector methods without any pythagoras, and doesn't require the red lines.
+
+**Proof 1:** Pythagoras.
+
+Draw in the red lines so they are perpendicular to the sides of the rectangle. Notice that we now have a bunch of right angled triangles (for example AFP). So, we have (using lengths not vectors)
+$$\begin{align*}
+PA^2+PC^2&=AF^2+FP^2+PH^2+HC^2\\
+\text{Since }& AF=DH, BF=HC,\\
+&=DH^2+PH^2+FP^2+BF^2\\
+&=PD^2+PB^2
+\end{align*}$$
+So we are done. To use vector methods, just express the vectors in terms of components, $PA$ in terms of $AF+FP$.
+
+**Proof 2:** Dot product.
+
+First, we will show $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$.
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{AB}+\vec{BP}+\vec{PD})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot \vec{AD}\\
+&=\vec{PB}\cdot \vec{PD} \text{ since $BA$ is perpendicular to AD.}
+\end{align*}$$
+So we've shown that $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$. Call this equation _(1), we will use it later. Therefore:
+$$\begin{align*}
+||\vec{PA}||^2+||\vec{PC}||^2&=||\vec{AP}||^2+||\vec{PC}||^2\\
+&=||\vec{AP}+\vec{PC}||^2-2\vec{AP}\cdot \vec{PC}\\
+&=||\vec{AC}||^2+2\vec{PA}\cdot {PC}\\
+&=||\vec{BD}||^2+2\vec{PB}\cdot \vec{PD} \text{ since }||AC||=||BD|| \text{ and equation \_(1)}\\
+&=||\vec{BP}+\vec{PD}||^2-2\vec{BP}\cdot \vec{PD}\\
+&=||BP||^2+||PD||^2\\
+&=||PB||^2+||PD||^2
+\end{align*}$$
+So we are done.
+
+**Problem 3:**  
+Show that the orthocentre exists - i.e. the altitudes of a triangle meet at at a point. 
+
+An altitude is a line that is perpendicular to a side and touches the opposite vertex of the triangle. Lets draw a diagram.
+
+![](VectorDiagrams/Orthocentre1.png)
+
+Here, i've drawn in two of the altitudes, and the line from the vertex to their intersection point. If this vector is perpendicular to the blue vector, the side, then the red line is an altitude and therefore the 3 altitudes intersect at a point, which is what we want. With perpendicular vectors, we usually show the dot product is 0. So,
+$$\begin{align*}
+\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
+&=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}\\
+&=(\vec{HC}+\vec{CA})\cdot \vec{BH} + (\vec{HB}+\vec{BA})\cdot \vec{HC}\\
+&=\vec{HC}\cdot \vec{BH} + \vec{CA}\cdot \vec{BH} + \vec{HB}\cdot \vec{HC} + \vec{BA}\cdot \vec{HC}\\
+\text{Since $BH$ and $AC$ are perpendicular, } \vec{BH}\cdot \vec{AC} &= 0\\
+\text{Similarly, } \vec{HC}\cdot \vec{BA} &= 0\\
+\therefore \underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\vec{HC}\cdot \vec{BH} + \vec{HB}\cdot \vec{HC}\\
+&=\vec{HC}\cdot \vec{BH} - \vec{BH}\cdot \vec{HC}\\
+&=0
+\end{align*}$$
+So they are perpendicular and we are done.
 <!---
 needs fixing
 -->
