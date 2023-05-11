@@ -230,7 +230,7 @@ So we are done. To use vector methods, just express the vectors in terms of comp
 First, we will show $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$.
 $$\begin{align*}
 \vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
-&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}&=-\vec{BA}\\
 &=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
