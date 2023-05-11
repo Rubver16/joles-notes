@@ -228,6 +228,7 @@ So we are done. To use vector methods, just express the vectors in terms of comp
 **Proof 2:** Dot product.
 
 First, we will show $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$.
+
 $$\begin{align*}
 \vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
 &=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
@@ -258,6 +259,7 @@ An altitude is a line that is perpendicular to a side and touches the opposite v
 ![](VectorDiagrams/Orthocentre1.png)  
 
 Here, i've drawn in two of the altitudes, and the line from the vertex to their intersection point. If this vector is perpendicular to the blue vector, the side, then the red line is an altitude and therefore the 3 altitudes intersect at a point, which is what we want. With perpendicular vectors, we usually show the dot product is 0. So,
+
 $$\begin{align*}
 \underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
 &=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}\\
