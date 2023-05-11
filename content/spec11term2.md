@@ -57,6 +57,7 @@ $$
 \end{align*}
 $$
 If you wish to remember this, the best way to do it is to read through it, understand the idea behind it, and then try to derive it yourself with no notes.
+
 **Combinatorial Proof:**
 
 Note that $\binom{n+1}{r+1}$ is the number of ways to choose $n+1$ objects from $r+1$.
@@ -90,13 +91,40 @@ boys are sitting opposite each other.
 What does it mean for two boys to be sitting opposite to to each other? Well, it means that if i take two people opposite each other they contain two boys. So, having our pigeons be boys at the table and pigeonholes be the 6 groups of opposite chairs seems like it could work. To clarify, suppose that each person is sitting on a number on a clock face. Our pigeonholes would be seats (12 and 6), (1 and 7), (2 and 8), and so on, where each pigeonhole has two seats opposite each other. Then, since there are 7 pigeons (boys) and 6 pigeonholes (groups of seats), 2 boys must be in the same group of seats, so there must be two boys sitting opposite each other. 
 
 ### Selections
-### How to use case bash
+1### How to use case bash
 Some combinatorics problems you just have to break into cases
 ## Vectors
 ### Definition
-For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$ (polar form). However, we can also represent a vector as its vertical part and its horizontal part, which we call component form, like $\binom{a}{b} = ai + bj$. Here,     
-### Addition
+For our purposes, a vector is a line segment with direction and magnitude. We can represent a vector this way, listing its magnitude and direction as such: $3$  $\angle 135^\circ$ (polar form). However, we can also represent a vector as its vertical part and its horizontal part, which we call component form, like $\binom{a}{b} = ai + bj$. For example, the vector $\underset{\tilde{}}{a}=\binom{3}{2}$ can be represented as the sum of 3 i vectors and 2 j vectors as such:
+![](VectorDiagrams/ComponentForm1.png)
+### Arithmetic
+We can add two vectors together as such:
+>$\vec{AX}+\vec{XB}=\vec{AB}$
+> 
+>$\binom{a_1}{b_1}+\binom{a_2}{b_2}=\binom{a_1+a_2}{b_1+b_2}$
+
+See how the $X$ just cancels out? Recognising this pattern makes it much easier to add vectors - just remove the two X's and the plus sign!
+Graphically, we use "head to tail" method, where we line up the vectors head to tail. 
+If you think about it hard enough, lining up the vectors this way, the resulting vector will have components the sum of the previous ones, just as we wanted.
+![](VectorDiagrams\VectorAddition.png)
+Subtraction in a very similar way - think about it in terms of addition. $\vec{AB}-\vec{AX}=\vec{AB}+\vec{XA}=\vec{XA}+\vec{AB}=\vec{XB}$
+> $\vec{AB}-\vec{AX}=\vec{XB}$
+>
+>$\binom{a_1}{b_1}-\binom{a_2}{b_2}=\binom{a_1-a_2}{b_1-b_2}$
+
+What about multiplication (and by extension division)? Well, we can't multiply two vectors together, but we can do something similar. We can scale up or down vectors by some number $k$ as such:
+> $k\binom{a_1}{b_1}=\binom{ka_1}{kb_1}$
+
+Think about it as a vector with the same direction but a length k times longer.
+The other thing that we can do is called the "dot product". 
+> $\binom{a_1}{b_1} \cdot \binom{a_2}{b_2}=a_1 \times a_2 + b_1 \times b_2$
+Look at cos with vectors for some more information...
 ### Proofs
+Just a warning for your proofs:
+($LHS$ = left hand side, $RHS$ = right hand side).
+>If you are required to prove $LHS=RHS$, start with $LHS$ and work with it until you get $RHS$. Don't start with $LHS=RHS$ and go to $0=0$, as unless you are very careful it is not valid!
+
+The reason I say this is because just because you can follow the logic down, doesn't mean you can follow the logic up. $LHS = RHS \implies 0=0$ doesn't mean that $0=0 \implies LHS = RHS$! For example, multiplying everything by zero gives $0=0$. It is only ok to do this if the logic "goes both ways", or in other words the operation can be reversed. For example, multiplying by zero or squaring (because of negative numbers) cannot be easily reversed, but adding or subtracting can. Be careful!
 **Problem 1:**
 Show that the diagonals of a parallelogram bisect each other.  
 
@@ -109,8 +137,43 @@ Now, a useful approach to this question is to show that the two midpoints of the
 Here, we have $\vec{AM_1}=\frac{1}{2}\vec{AC}=\frac{{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}}{2}$.  
 Furthermore, $\vec{AM_2}=\vec{AB}+\vec{BM_2}=\underset{\tilde{}}{b}+\frac{{\underset{\tilde{}}{a}}-\underset{\tilde{}}{b}}{2}=\frac{\underset{\tilde{}}{a}+\underset{\tilde{}}{b}}{2}$.  
 Therefore, $\vec{AM_1}=\vec{AM_2}$, so $M_1$ is the same point as $M_2$ and therefore the intersection of the lines is a midpoint to both lines, so the diagonals bisect each other.
-### Sin + Cos with vectors
-### || and perp vectors
+Here is a formal proof:
+
+**Problem 2:**  
+Let $ABCD$ be a rectangle, and $P$ a point inside the rectangle. Show that $AP^2+CP^2=BP^2+DP^2$. 
+
+Since we are using vector methods, we should represent this equation in vectors: $||\vec{PA}||^2+||\vec{PC}||^2=||\vec{PB}||^2+||\vec{PD}||^2$
+We should start every problem by drawing a diagram.
+['/(Insert Diagram)ty53aQ!WQA2S3E 76BYNU}"
+]
+
+### Cos with vectors and dot product
+> $a\cdot b=||a|| \times ||b|| \times cos\theta$
+
+You've probably seen this before. Here is a proof.
+
+Suppose we have a triangle $OAB$ with $\angle AOB=\theta$. For convenience, let $a=\vec{OA}$, $b=\vec{OB}$ (i'm emitting the squiggly lines so my writeup doesn't suck you should include them).  
+Therefore, we have 
+$$\begin{align*}
+||\vec{BA}||^2&=||a||^2+||b||^2 - 2 \times ||a||\times||b||\times cos{\theta}\\
+||a-b||&=||a||^2+||b||^2 - 2 \times ||a||\times||b||\times cos{\theta}\\
+||a||^2+||b||^2-2a\cdot b&=||a||^2+||b||^2 - 2 \times ||a||\times||b||\times cos{\theta}\\
+-2a\cdot b&=- 2 \times ||a||\times||b||\times cos{\theta}\\
+a\cdot b&=||a|| \times ||b|| \times cos\theta
+\end{align*}$$
+
+This is useful for many reasons, such as relating dot product and lengths to the angle, and for perpendicular vectors. 
+### Parallel and Perpendicular vectors
+>$k\underset{\tilde{}}{a}=\underset{\tilde{}}{b}$ if and only if $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are parallel
+>
+>$\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are perpendicular if and only if $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}=0$
+
+Parallel vectors are simple: two vectors being parallel is equivelent to one being a multiple of another. So, if you can find some number k such that $k\underset{\tilde{}}{a}=\underset{\tilde{}}{b}$, $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are parallel. 
+
+My explanation for this is as follows: Since vectors have no position, if they are parallel you can put them so they both start at the origin. Since they both have the same direction since they are parallel, the only thing that differs is their magnitude. If we scale this up or down (multiply by a number) so they have the same magnitude, they will be the same vector.
+
+From before, if $\underset{\tilde{}}{a}$ and $\underset{\tilde{}}{b}$ are perpendicular, then $cos\theta=cos90=0$, so $\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}=0$. Similarly, if the dot product is 0, either one of your vectors is the 0 vector or they are perpendicular. We use this result quite often in proofs, so don't forget it!
+
 ### CAS tutorial
 aaaaaa deploy please please
 Main website [here](_index.md).
