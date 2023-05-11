@@ -232,6 +232,30 @@ First, we will show $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$.
 $$\begin{align*}
 \vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
 &=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+\end{align*}$$
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
+\end{align*}$$
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
+\end{align*}$$
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{AB}+\vec{BP}+\vec{PD})\\
+\end{align*}$$
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
 &=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
@@ -260,6 +284,21 @@ An altitude is a line that is perpendicular to a side and touches the opposite v
 
 Here, i've drawn in two of the altitudes, and the line from the vertex to their intersection point. If this vector is perpendicular to the blue vector, the side, then the red line is an altitude and therefore the 3 altitudes intersect at a point, which is what we want. With perpendicular vectors, we usually show the dot product is 0. So,
 
+$$\begin{align*}
+\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
+&=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}
+\end{align*}$$
+$$\begin{align*}
+\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
+&=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}\\
+&=(\vec{HC}+\vec{CA})\cdot \vec{BH} + (\vec{HB}+\vec{BA})\cdot \vec{HC}\\
+\end{align*}$$
+$$\begin{align*}
+\underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
+&=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}\\
+&=(\vec{HC}+\vec{CA})\cdot \vec{BH} + (\vec{HB}+\vec{BA})\cdot \vec{HC}\\
+&=\vec{HC}\cdot \vec{BH} + \vec{CA}\cdot \vec{BH} + \vec{HB}\cdot \vec{HC} + \vec{BA}\cdot \vec{HC}\\
+\end{align*}$$
 $$\begin{align*}
 \underset{\tilde{}}{a}\cdot \underset{\tilde{}}{b}&=\underset{\tilde{}}{a}\cdot (\vec{BH}+\vec{HC})\\
 &=\underset{\tilde{}}{a}\cdot \vec{BH} + \underset{\tilde{}}{a}\cdot \vec{HC}\\
