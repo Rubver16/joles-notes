@@ -144,8 +144,8 @@ Let $ABCD$ be a rectangle, and $P$ a point inside the rectangle. Show that $AP^2
 
 Since we are using vector methods, we should represent this equation in vectors: $||\vec{PA}||^2+||\vec{PC}||^2=||\vec{PB}||^2+||\vec{PD}||^2$
 We should start every problem by drawing a diagram.
-['/(Insert Diagram)ty53aQ!WQA2S3E 76BYNU}"
-]
+![](VectorDiagram/Rectangle1.png)
+
 
 ### Cos with vectors and dot product
 > $a\cdot b=||a|| \times ||b|| \times cos\theta$
