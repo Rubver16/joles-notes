@@ -254,6 +254,16 @@ $$\begin{align*}
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{AB}+\vec{BP}+\vec{PD})\\
 \end{align*}$$
+$$\begin{align*}
+\vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
+&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} - \vec{BA}\cdot \vec{PB} + \vec{BA}\cdot \vec{PD} - \vec{BA}\cdot \vec{BA}\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}-\vec{PB}-\vec{BA})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{PD}+\vec{BP}+\vec{AB})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot (\vec{AB}+\vec{BP}+\vec{PD})\\
+&=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot \vec{AD}\\
+&=\vec{PB}\cdot \vec{PD} \text{ since $BA$ is perpendicular to AD.}\\
+\end{align*}$$
 So we've shown that $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$. Call this equation _(1), we will use it later. Therefore:
 $$\begin{align*}
 ||\vec{PA}||^2+||\vec{PC}||^2&=||\vec{AP}||^2+||\vec{PC}||^2\\
