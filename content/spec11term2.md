@@ -229,7 +229,8 @@ So we are done. To use vector methods, just express the vectors in terms of comp
 
 First, we will show $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$.
 
-$$\begin{align*}
+$$
+\begin{align*}
 \vec{PA}\cdot \vec{PC}&=(\vec{PB}+\vec{BA})\cdot (\vec{PD}+\vec{DC})\\
 &=(\vec{PB}+\vec{BA})\cdot (\vec{PD}-\vec{BA}) \text{ since } \vec{DC}=-\vec{BA}\\
 \end{align*}$$
@@ -272,7 +273,8 @@ $$\begin{align*}
 &=||\vec{BP}+\vec{PD}||^2-2\vec{BP}\cdot \vec{PD}\\
 &=||BP||^2+||PD||^2\\
 &=||PB||^2+||PD||^2
-\end{align*}$$
+\end{align*}
+$$
 So we are done.
 
 **Problem 3:**  
