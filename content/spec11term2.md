@@ -280,7 +280,7 @@ $$
 &=3\\
 &=3\\
 &=3\\
-&=3\\
+&=3
 \end{align*}
 $$
 So we've shown that $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$. Call this equation _(1), we will use it later. Therefore:
