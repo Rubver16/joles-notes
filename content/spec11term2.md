@@ -264,6 +264,25 @@ $$\begin{align*}
 &=\vec{PB}\cdot \vec{PD} +\vec{BA} \cdot \vec{AD}\\
 &=\vec{PB}\cdot \vec{PD} \text{ since $BA$ is perpendicular to AD.}\\
 \end{align*}$$
+$$
+\begin{align*}
+3&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+&=3\\
+\end{align*}
+$$
 So we've shown that $\vec{PA}\cdot \vec{PC}=\vec{PB}\cdot \vec{PD}$. Call this equation _(1), we will use it later. Therefore:
 $$\begin{align*}
 ||\vec{PA}||^2+||\vec{PC}||^2&=||\vec{AP}||^2+||\vec{PC}||^2\\
